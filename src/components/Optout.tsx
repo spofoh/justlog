@@ -68,7 +68,7 @@ export function OptoutPanel() {
 
     return <OptoutPanelWrapper>
         <p>
-            You can opt out from being logged. This will also disable access to your previously logged data.<br />
+            You can opt out from being logged. This will also delete all of your existing logs!<br />
             This applies to all chats of that rustlog instance.<br />
             Opting out is permanent, there is no reverse action. So think twice if you want to opt out.
         </p>
