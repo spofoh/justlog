@@ -1,20 +1,16 @@
 export interface UserLogResponse {
-    messages: RawLogMessage[],
+    messages: BasicLogMessage[],
 }
 
-export interface LogMessage extends Omit<RawLogMessage, "timestamp"> {
+export interface LogMessage extends Omit<BasicLogMessage, "timestamp"> {
     timestamp: Date,
     emotes: Array<Emote>,
 }
 
-export interface RawLogMessage {
+export interface BasicLogMessage {
     text: string,
-    username: string,
     displayName: string,
-    channel: string,
     timestamp: string,
-    type: number,
-    raw: string,
     id: string,
     tags: Record<string, string>,
 }

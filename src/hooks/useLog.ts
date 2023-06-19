@@ -23,7 +23,7 @@ export function useLog(channel: string, username: string, year: string, month: s
             }
 
             const queryUrl = new URL(`${state.apiBaseUrl}/channel${channelIsId ? "id" : ""}/${channel}/user${usernameIsId ? "id" : ""}/${username}/${year}/${month}`);
-            queryUrl.searchParams.append("json", "1");
+            queryUrl.searchParams.append("jsonBasic", "1");
             if (!state.settings.newOnBottom.value) {
                 queryUrl.searchParams.append("reverse", "1");
             }
@@ -68,7 +68,7 @@ function parseEmotes(messageText: string, emotes: string | undefined): Array<Emo
 
             const startIndex = Number(startPos);
             const endIndex = Number(endPos) + 1;
-            
+
             parsed.push({
                 id,
                 startIndex: startIndex,
