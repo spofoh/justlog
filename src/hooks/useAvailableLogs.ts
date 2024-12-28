@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { useQuery } from "react-query";
-import { OptOutError } from "../errors/OptOutError";
 import { getUserId, isUserId } from "../services/isUserId";
 import { store } from "../store";
 
@@ -35,10 +34,6 @@ export function useAvailableLogs(channel: string | null, username: string | null
             }
 
             setState({ ...state, error: true });
-
-            if (response.status === 403) {
-                throw new OptOutError();
-            }
 
             throw Error(response.statusText);
         }).then(response => response.json())
